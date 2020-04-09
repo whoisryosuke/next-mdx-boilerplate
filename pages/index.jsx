@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Button } from '@chakra-ui/core'
 
 const Home = () => (
   <div className="container">
@@ -11,6 +12,8 @@ const Home = () => (
       <h1 className="title">
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
+
+      <Button variantColor="green">Chakra Test</Button>
 
       <p className="description">
         Get started by editing <code>pages/index.js</code>
