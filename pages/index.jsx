@@ -1,8 +1,41 @@
+import Link from 'next/link'
 import Head from 'next/head'
-import { Button } from '@chakra-ui/core'
+import { motion } from 'framer-motion'
+import { Box, Button, Heading, Flex } from '@chakra-ui/core'
+
+const easing = [0.6, -0.05, 0.01, 0.99]
+
+const fadeInUp = {
+  hidden: {
+    y: 50,
+    opacity: 0,
+    transition: { duration: 0.6, ease: easing },
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: easing,
+    },
+  },
+}
+
+const staggerCards = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const Home = () => (
-  <div className="container">
+  <motion.div
+    exit={{ opacity: 0, transition: { duration: 2 } }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="container"
+  >
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
@@ -13,41 +46,78 @@ const Home = () => (
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
 
-      <Button variantColor="green">Chakra Test</Button>
+      <Link href="/about">
+        <Button as="a" variantColor="green">
+          Chakra Test
+        </Button>
+      </Link>
 
       <p className="description">
         Get started by editing <code>pages/index.js</code>
       </p>
 
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <motion.div variants={staggerCards}>
+        <Flex flexWrap="wrap" width={1 / 2} margin="auto">
+          <Box as="a" href="https://nextjs.org/docs" width={1 / 2} p={3}>
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <Box p={6} border="1px solid #eaeaea" borderRadius="10px">
+                <Heading as="h3" size="md" mb={2}>
+                  Documentation &rarr;
+                </Heading>
+                <p>Find in-depth information about Next.js features and API.</p>
+              </Box>
+            </motion.div>
+          </Box>
 
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
+          <Box as="a" href="https://nextjs.org/learn" width={1 / 2} p={3}>
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
+                <Heading as="h3" size="md" mb={2}>
+                  Learn &rarr;
+                </Heading>
+                <p>
+                  Learn about Next.js in an interactive course with quizzes!
+                </p>
+              </Box>
+            </motion.div>
+          </Box>
 
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
+          <Box
+            as="a"
+            href="https://github.com/zeit/next.js/tree/master/examples"
+            width={1 / 2}
+            p={3}
+          >
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
+                <Heading as="h3" size="md" mb={2}>
+                  Examples &rarr;
+                </Heading>
+                <p>Discover and deploy boilerplate example Next.js projects.</p>
+              </Box>
+            </motion.div>
+          </Box>
 
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
-          </p>
-        </a>
-      </div>
+          <Box
+            as="a"
+            href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            width={1 / 2}
+            p={3}
+          >
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
+                <Heading as="h3" size="md" mb={2}>
+                  Deploy &rarr;
+                </Heading>
+                <p>
+                  Instantly deploy your Next.js site to a public URL with ZEIT
+                  Now.
+                </p>
+              </Box>
+            </motion.div>
+          </Box>
+        </Flex>
+      </motion.div>
     </main>
 
     <footer>
@@ -200,7 +270,7 @@ const Home = () => (
         box-sizing: border-box;
       }
     `}</style>
-  </div>
+  </motion.div>
 )
 
 export default Home

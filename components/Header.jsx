@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/core'
 
 const MenuItems = ({ children }) => (
@@ -24,7 +25,9 @@ const Header = (props) => {
     >
       <Flex align="center" mr={5}>
         <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
-          Chakra UI
+          <Link href="/">
+            <a>Chakra UI</a>
+          </Link>
         </Heading>
       </Flex>
 
@@ -46,7 +49,11 @@ const Header = (props) => {
         alignItems="center"
         flexGrow={1}
       >
-        <MenuItems>Docs</MenuItems>
+        <MenuItems>
+          <Link href="/about">
+            <a>Docs</a>
+          </Link>
+        </MenuItems>
         <MenuItems>Examples</MenuItems>
         <MenuItems>Blog</MenuItems>
       </Box>
