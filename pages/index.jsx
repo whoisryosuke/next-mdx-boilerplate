@@ -59,7 +59,13 @@ const Home = () => (
       <motion.div variants={staggerCards}>
         <Flex flexWrap="wrap" width={1 / 2} margin="auto">
           <Box as="a" href="https://nextjs.org/docs" width={1 / 2} p={3}>
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Box p={6} border="1px solid #eaeaea" borderRadius="10px">
                 <Heading as="h3" size="md" mb={2}>
                   Documentation &rarr;
@@ -70,7 +76,13 @@ const Home = () => (
           </Box>
 
           <Box as="a" href="https://nextjs.org/learn" width={1 / 2} p={3}>
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
                 <Heading as="h3" size="md" mb={2}>
                   Learn &rarr;
@@ -88,7 +100,13 @@ const Home = () => (
             width={1 / 2}
             p={3}
           >
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
                 <Heading as="h3" size="md" mb={2}>
                   Examples &rarr;
@@ -104,7 +122,13 @@ const Home = () => (
             width={1 / 2}
             p={3}
           >
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Box border="1px solid #eaeaea" borderRadius="10px" p={6}>
                 <Heading as="h3" size="md" mb={2}>
                   Deploy &rarr;
