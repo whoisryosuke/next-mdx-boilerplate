@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const Home = () => (
+const Home: React.FC = () => (
   <div className="container">
     <Head>
       <title>Create Next App</title>
